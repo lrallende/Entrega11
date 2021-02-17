@@ -17,11 +17,12 @@ export class UsersRoutes extends CommonRoutesConfig {
 
         this.app.route('/ingresar')
         .get((req: express.Request, res: express.Response) =>{
-            res.status(200).render('ingresar', {
+            res.status(200).render('pages/ingresar', {
             })
         })
         .post(urlencodedParser,(req: express.Request, res: express.Response) => {
             let id = (this.productos.length + 1).toString()
+            // console.log(req.body)
             const {title, price, thumbnail} = req.body
             const prod = {
                     id,
@@ -30,13 +31,13 @@ export class UsersRoutes extends CommonRoutesConfig {
                     thumbnail
             }
             this.productos.push(prod)
-            res.status(200).render('ingresar', {
+            res.status(200).render('pages/ingresar', {
             })
         })
 
         this.app.route('/productos/vista')
         .get((req: express.Request, res: express.Response) =>{
-            res.status(200).render('index', {
+            res.status(200).render('pages/index', {
                 productos: this.productos,
             });;
         })

@@ -12,7 +12,7 @@ let productos: Producto [] = []
 routes.push(new UsersRoutes(app, productos))
 
 app.set('views', path.join(__dirname, '..', 'views'))
-app.set('view engine', 'pug')
+app.set('view engine', 'ejs')
 
 app.listen(PORT, () => {
     console.log(`Escuchando en puerto ${PORT}`)
